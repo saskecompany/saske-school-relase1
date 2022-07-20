@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+<title>
+  {% block title %}
+  مركز التفوق | محاضره 
+  {% endblock title %}
+</title>
+{% block main %}
+  <header>
+    <h1 class="ht">
+      مرحبا بك يا {% if cuser.username %}{{cuser.username}} {% else %} {{cuser.Sfname}} {% endif %} في مركزنا التعليمي
+    </h1>
+  </header>
+  {% if lesson %}
+    <div class="lesson">
+      <div class="lesson-info">
+        <h1>المحاضره رقم {{ lesson.id }}</h1>
+        <hr>
+        <video id="lessonvideo" controls>
+          <source src="{{ lesson.video.url }}" type="video/mp4">
+          <source src="{{ lesson.video.url }}" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </div>
+    <hr style="height:10px; background-color:green;">
+    <a class="homelink" href="{% url 'task:homework' lesson.id %}">
+      <div id="homebox">
+        <h1> الواجب المنزلي لدرس {{ lesson.name }} </h1>
+      </div>
+    </a>
+    </div>
+  {% else %}
+    <div class="lesson">
+      <div class="lesson-info">
+        <h1 style="color:red">نأسف لا يمكننا عرض هذه الحصه</h1>
+        <hr>
+        <h3>سيكون بإمكانك مشاهدة هذه الحلقه بعد إعادة شحن رصيدك</h3>
+      </div>
+    </div>
+    </div>
+  {% endif %}
+{% endblock main %}
+
+{% block spstyle %}
+  <script>
+    window.addEventListener("load", function(){
+        document.querySelectorAll(".nav-link")[0].classList.remove("active");
+        document.querySelectorAll(".nav-link")[1].classList.add("active");
+    });
+  </script>
+{% endblock spstyle %}

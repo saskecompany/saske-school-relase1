@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning" dir="rtl">
+      <div class="container-fluid"><a class="navbar-brand" href="#">&#x627;&#x644;&#x62A;&#x641;&#x648;&#x642;</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home:home' %}">&#x627;&#x644;&#x631;&#x626;&#x64A;&#x633;&#x64A;&#x647;</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home:all' %}">&#x627;&#x644;&#x634;&#x631;&#x62D;</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'task:exams' %}">&#x627;&#x644;&#x627;&#x645;&#x62A;&#x62D;&#x627;&#x646;&#x627;&#x62A;</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'reports:report' %}">&#x627;&#x644;&#x646;&#x62A;&#x627;&#x626;&#x62C;</a></li>
+          </ul>
+          {% if not user.is_staff %}
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown "><a class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
+              <ul class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                <li>
+                  <h6 class="dropdown-item np" href="#">أسم الطالب:
+                  <span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %}
+                  > {{ cuser.Sfname }} {{ cuser.Smname }} {{ cuser.Slname }}  
+                  </span></h6>
+                </li>
+                <li>
+                  <h6 class="dropdown-item np" href="#"> الرقم القومي:<span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %} > {{ cuser.Sidnumber }} </span></h6>
+                </li>
+                <li>
+                  <h6 class="dropdown-item np" href="#"> رقم المجموعه:<span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %} > {{ cuser.Sidgroup }} </span></h6>
+                </li>
+                <li>
+                  <h6 class="dropdown-item np" href="#"> رصيد الطالب:<span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %} > {{ cuser.points }} </span><span class="usera me-5" style='color:green;'><a href={% url 'pay:pay' %}>أشحن الأن</a></span></h6>
+                </li>
+                <li>
+                  <h6 class="dropdown-item np" href="#"> حالة الطالب:<span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %} > {% if cuser.points >= 10 %} <i class="bi bi-person-check-fill"></i> {% else %}<i class="bi bi-person-x-fill"></i> {% endif %}</span></h6>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="{% url 'student:change' %}">تفيير كلمة المرور</a></li>
+                <li><a class="dropdown-item" href="{% url 'reports:report' %}">التقرير</a></li>
+                <li><a class="dropdown-item" href="{% url 'student:logout' %}">تسجيل الخروج </a></li>
+              </ul>
+            </li>
+          </ul>
+          {% endif %}
+          {% if user.is_staff %}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown "><a class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-bounding-box"></i></a>
+              <ul class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                <li>
+                  <h6 class="dropdown-item np" href="#"> أسم الاستاذ: <span class="usera"> {{ user.first_name }} {{ user.last_name }}</span>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="{% url 'student:change' %}">تفيير كلمة المرور</a></li>
+                <li><a class="dropdown-item" href="#">إعدادات </a></li>
+                <li><a class="dropdown-item" href="{% url 'student:logout' %}">تسجيل الخروج </a></li>
+              </ul>
+            </li>
+          </ul>
+        {% endif %}
+        </div>
+      </div>
+    </nav>

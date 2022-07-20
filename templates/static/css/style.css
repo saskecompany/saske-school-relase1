@@ -1,0 +1,445 @@
+*{
+  direction: rtl !important;
+}
+
+.navbar {
+  padding: 0% !important;
+}
+
+.nav-link {
+  font-size: 20px;
+}
+
+.bi {
+  font-size: 32px;
+  transition: 3s;
+  border: none;
+}
+
+.dropdown-menu {
+  text-align: right;
+}
+
+.usera {
+  color: green;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.charge{
+  margin-right:1%;
+}
+
+header {
+  text-align: center;
+}
+header .ht {
+  direction: rtl !important;
+  margin: 20px 0px 50px 5px;
+  padding-bottom: 0%;
+  border-bottom: 3px solid #ffc107;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  transition: 3s;
+}
+
+.ht:hover {
+  border-top: 2px solid red;
+  border-right: 2px solid green;
+  border-left: 2px solid blue;
+  padding: 1%;
+}
+
+.catlink{
+  height: 200px;
+  width: 200px;
+  border-top: 10px solid red;
+  border-bottom: 10px solid blue;
+  border-left: 10px solid yellow;
+  border-right: 10px solid green;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 75px;
+  background-image: url(../media/images/secback.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
+  text-decoration: none;
+  position: relative;
+  margin: 2% 0%;
+  transition: 1s;
+}
+.catname{
+  font-size: 50px;
+  margin: 30% auto;
+  width: fit-content;
+  background-color: black;
+  opacity: 1;
+  padding: 2%;
+  border-radius: 75px;
+  transition: 2s;
+  color:white;
+  font-weight: bolder;
+}
+.catlink:hover{
+  border-right: 5px solid red;
+  border-bottom: 5px solid yellow;
+  border-left: 5px solid blue;
+  border-top: 5px solid green;
+  padding: 1%;
+}
+.catlink:hover .catname{
+  opacity: 1;
+  color: red;
+  border-radius: 25px;
+}
+
+.sec{
+  text-align: center;
+  transition: 2s;
+}
+.lec {
+  margin: 5% 0%;
+  height: 200px;
+  border-top: 5px solid red;
+  border-bottom: 5px solid blue;
+  border-left: 5px solid yellow;
+  border-right: 5px solid green;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 75px;
+  background-image: url(../media/images/secback.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  transition: 1s;
+}
+.lec-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.lesson{
+  text-align: center;
+}
+#lessonvideo{
+  width: 100%;
+}
+.sec a {
+  color: transparent;
+  text-decoration: none;
+}
+.sec a:hover {
+  color: red;
+  text-decoration: line-through;
+}
+
+.sec h1 {
+  font-size: 28px;
+  color: #000;
+  background-color: #fff;
+  width: fit-content;
+  text-align: center;
+  font-weight: bolder;
+}
+.sec p {
+  font-size: 23px;
+  font-weight: bolder;
+  color: #000;
+  background-color: #fff;
+  margin: 0% auto;
+}
+
+.sec:hover .lec{
+  border-top: 10px solid green;
+  border-bottom: 10px solid yellow;
+  border-left: 10px solid blue;
+  border-right: 10px solid red;
+}
+
+#fot, footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  direction: rtl;
+
+  padding: 1%;
+}
+footer{
+  display: inline-block;
+  width: 100%;
+  border: 1px dashed black;
+  margin: 2% 0% 1% 0%;
+}
+.about {
+  width: 30%;
+}
+
+.links ul li, .our ul li {
+  list-style-type: none;
+}
+.links ul li a, .our ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+#sas {
+  text-align: center;
+  border-bottom: 5px solid green;
+}
+#sas h6 {
+  text-decoration: underline red;
+}
+
+.sac {
+  color: red;
+  font-weight: bold;
+}
+
+/*
+homework.html style
+*/
+#quest{
+  position: relative;
+  margin-bottom: 5%;
+}
+#exam{
+  border: 3px black solid;
+  margin-top: 2%;
+}
+#exam-body{
+  margin-top: 10%;
+}
+.ask{
+  word-wrap: break-word;
+  margin-bottom: 3%;
+}
+#an{
+  visibility: hidden;
+}
+#sr{
+  position: absolute;
+  top: 35%;
+  right: 30%;
+}
+.bttn{
+  font-size: 30px;
+  margin: 2% 2% 1% 2%;
+}
+#questbttns{
+  text-align: center;
+}
+.correct{
+  border: green 2px solid;
+}
+.bi-check-circle-fill{
+  color: green!important;
+  font-size: 55px;
+}
+.bi-x-circle-fill{
+  color: red!important;
+  font-size: 55px;
+}
+#questimg{
+  border-top: 5px solid red;
+  border-bottom: 5px solid blue;
+  border-left: 5px solid yellow;
+  border-right: 5px solid green;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 75px;
+  height: 50vh;
+}
+
+
+#homebox{
+  background:linear-gradient(120deg, #e4b425 20%, #000 100%);
+  width: fit-content;
+  padding: 5%;
+  color: #fff;
+
+  transition: 5s;
+}
+
+#homebox:hover{
+  background:linear-gradient(300deg, #ffc107 30%, #000 100%);
+  width: fit-content;
+  padding: 6%;
+}
+
+.homelink{
+  text-decoration: none;
+  color: #fff;
+  font-weight: bolder;
+  }
+
+
+/* exams.html style */
+.exam-link{
+  text-decoration: none;
+}
+.badge{
+  color: #000;
+  border: #000 solid 2px;
+  padding: 10px;
+  background-color: #ffc107;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 75px;
+}
+/* exam.html */
+.bttn{
+  transition: 2s;
+}
+
+/* auth style */
+
+.head-forms{
+  text-align: center;
+}
+#forms{
+  background-color: #ffc107;
+  width: fit-content;
+  margin: 0% auto;
+  padding: 3%;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 75px;
+  text-align:center;
+}
+#forms label{
+  color: rgb(7, 103, 133);
+  font-size: 20px;
+  margin:0% 3%;
+}
+#forms input{
+font-size: 1,5rem;
+background-color: transparent !important;
+border: transparent;
+border-bottom: black 2px solid;
+padding: 1%;
+margin: 3% 0%;
+}
+.btn-forms{
+font-size: 1,5rem;
+}
+.controls ul{
+  display: none;
+}
+.help-block{
+  color: red;
+}
+#forms ul{
+  color: red;
+  text-decoration: underline;
+}
+/*
+  393px screen
+*/
+
+@media screen and (max-width: 393px) {
+  #fot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    direction: rtl;
+    border: 3px solid red;
+    padding: 1%;
+  }
+
+/* media style */
+}
+video:-webkit-full-page-media {
+  margin: 0%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+video:-webkit-full-page-media::-webkit-media-controls-panel {
+  bottom: 0px;
+}
+
+video{
+  border-top: 7px solid red;
+  border-bottom: 7px solid blue;
+  border-left: 7px solid yellow;
+  border-right: 7px solid green;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 75px;
+  padding: 2px;
+  transition: 2s;
+}
+video:hover{
+  border-right: 5px solid red;
+  border-bottom: 5px solid yellow;
+  border-left: 5px solid blue;
+  border-top: 5px solid green;
+}
+
+video::-webkit-media-controls-play-button, video::-webkit-media-controls-mute-button, video::-webkit-media-controls-fullscreen-button{
+  background-color: #000;
+  border-radius: 50%;
+  text-align: center;
+  transition: 2s;
+}
+video::-webkit-media-controls-play-button:hover, video::-webkit-media-controls-mute-button:hover,:hover video::-webkit-media-controls-fullscreen-button:hover{
+  background-color: #b6b3ac;
+  border-radius: 50%;
+  text-align: center;
+}
+video::-webkit-media-controls-current-time-display,video::-webkit-media-controls-time-remaining-display {
+width: 45px;
+color: #fff;
+}
+
+video::-webkit-media-controls-timeline{
+  background:linear-gradient(to bottom, red, black)!important;
+  padding: 8px;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 20px;
+  transition: 2s;
+}
+video::-webkit-media-controls-timeline:hover{
+  background:linear-gradient(to top, green, black)!important;
+  padding: 12px;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 20px;
+}
+.active{
+  font-size: 30px;
+  padding: 1%;
+  text-decoration: underline;
+
+}
+.links-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5% 0%;
+}
+.bi-facebook, .bi-instagram{
+  font-size: 40px;
+  margin: 10px;
+  transition: 2s;
+
+}
+.bi-youtube{
+  font-size: 55px;
+  margin: 10px;
+  transition: 2s;
+}
+
+.bi-facebook:hover{
+  color: blue;
+
+}
+.bi-youtube:hover{
+  color: red;
+}
+.bi-instagram:hover{
+  color: blueviolet;
+}
+.phone-link:hover .bi-phone-fill ,.phone-link:hover  .bi-telephone-fill {
+  color:green;
+}

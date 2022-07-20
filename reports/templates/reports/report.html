@@ -1,0 +1,138 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block spstyle %}
+    <link rel="stylesheet" type="text/css" href="{% static './report/style/report.css' %}" />
+
+{% endblock spstyle %}
+{% block main %}
+{% if not user.is_staff %}
+    <header> 
+        <h6>{{ cuser }}</h6>
+        <h1 class="ht">
+        تقرير شامل للطالب   {% if cuser.is_staff %} {{cuser.first_name}} {% else %}  {{cuser.Sfname}} {% endif %}
+        </h1>
+  </header>
+    <div class="repbox">
+        <div class="homewrep-container " >
+            <div class="homewrep">
+                <div class="chart" data-percent="{% if per %}{{per}}%{% else %}0%{% endif %}"><span class="percent"></span></div>
+            </div>
+        </div>
+        <div>
+            <ul class="box-info-student">
+                <li>
+                <h4 class="dropdown-item np">أسم الطالب:
+                <span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %}
+                > {{ cuser.Sfname }} {{ cuser.Smname }} {{ cuser.Slname }}  
+                </span></h6>
+                </li>
+                <li>
+                <h4 class="dropdown-item np"> الرقم القومي:<span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %} > {{ cuser.Sidnumber }} </span></h6>
+                </li>
+                <li>
+                <h4 class="dropdown-item np"> رقم المجموعه:<span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %} > {{ cuser.Sidgroup }} </span></h6>
+                </li>
+                <li>
+                <h4 class="dropdown-item np" href="#"> رصيد الطالب:<span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %} > {{ cuser.points }} </span><span class="usera me-5" style='color:green;'><a href={% url 'pay:pay' %}>أشحن الأن</a></span></h4>
+                </li>
+                <li>
+                <h4 class="dropdown-item np"> حالة الطالب:<span class="usera" {% if cuser.points >= 10 %} style='color:green;'; {% else %} style='color:red;' {% endif %} > {% if cuser.points >= 10 %} <i class="bi bi-person-check-fill"></i> {% else %}<i class="bi bi-person-x-fill"></i> {% endif %}</span></h6>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr style="height: 5px; color: green;">
+    <div>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  تفرير واجبات الطالب {{cuser.Sfname}}
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ol class="list-group list-group-item list-group-item-action list-group-numbered">
+                      {% if hrep %}
+                        {% for hrep in hrep %}
+                        <li><a href="{% url 'reports:homerv' hrep.lesson_id %}">تقرير واجب {{ hrep.lesson }}</a></li>
+                        {% endfor %}
+                      {% else %}
+                          <h2 class="alert alert-info" >لم تقم بحل اي واجب بعد</h2>
+                      {% endif %}
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    تفرير امتحانات الطالب {{cuser.Sfname}}
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ol class="list-group list-group-item list-group-item-action list-group-numbered">
+                        {% if erep %}
+                          {% for erep in erep %}
+                          <li><a href="{% url 'reports:examrv' erep.id %}">تقرير {{ erep.exam }}</a></li>
+                          {% endfor %}
+                        {% else %}
+                        <h2 class="alert alert-info" >لم تقم بأداء اي امتحان بعد</h2>
+                        {% endif %}
+                    </ol>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+
+
+  {%if user.is_staff %}
+    <header> 
+        <h6>{{ user }}</h6>
+        <h1 class="ht">
+        تقرير شامل كوضع تجريبي    {{user.first_name}}
+        </h1>
+    </header>
+  <div class="repbox">
+    <div class="homewrep-container " >
+        <div class="homewrep">
+            <div class="chart" data-percent="90"><span class="percent"></span></div>
+        </div>
+    </div>
+    <div>
+        <ul class="box-info-student">
+            <li>
+              <h4 class="dropdown-item np">أسم الطالب:
+              <span class="usera" style="color:green;";
+              > {{ user.first_name }} {{ user.last_name }}
+              </span></h6>
+            </li>
+            <li>
+              <h4 class="dropdown-item np"> الرقم القومي:<span class="usera" style="color:green;"; >12345678901234 </span></h6>
+            </li>
+            <li>
+              <h4 class="dropdown-item np"> رقم المجموعه:<span class="usera" style="color:green;"; > 1d </span></h6>
+            </li>
+            <li>
+              <h4 class="dropdown-item np"> حالة تجريبيه:<span class="usera" style="color:green;"; > <i class="bi bi-person-check-fill"></i> </span></h6>
+            </li>
+          </ul>
+    </div>
+  </div>
+  {% endif %}
+{% endblock main %}
+{% block spscript %}
+    <script>
+      window.addEventListener("load", function(){
+        document.querySelectorAll(".nav-link")[0].classList.remove("active");
+        document.querySelectorAll(".nav-link")[3].classList.add("active");
+    });
+    </script>
+    <script src="{% static './report/script/jquery.easypiechart.min.js' %}"></script>
+    <script src="{% static './report/script/report.js' %}"></script>
+{% endblock spscript %}

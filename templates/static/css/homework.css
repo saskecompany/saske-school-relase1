@@ -1,0 +1,19 @@
+{% comment %} * {
+  direction: rtl !important;
+}
+
+html, body {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+main {
+  margin-bottom: 5%;
+}
+
+.hdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+} {% endcomment %}
