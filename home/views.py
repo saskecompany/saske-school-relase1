@@ -33,19 +33,22 @@ def lessonv(request, id):
 @login_required
 def lessondetail(request, id):
     
-    cuser = student.objects.get(sinit=request.user)
-    if Lessons.objects.filter(id = id).exists:
+    if not request.user.is_staff:
+        cuser = student.objects.get(sinit=request.user)
+        if Lessons.objects.filter(id = id).exists:
+            lesvisit = Lessons.objects.get(id = id)
+        if cuser.points < 10 :
+            if lesvisit in cuser.watchedlecs.all():
+                lesvisit = lesvisit
+            else:
+                lesvisit = []
+        if cuser.points >= 10 and lesvisit not in cuser.watchedlecs.all():
+            lesvisit = Lessons.objects.get(id = id)
+            cuser.watchedlecs.add(lesvisit)
+            cuser.points = cuser.points - 10
+            cuser.save()
+    else:
         lesvisit = Lessons.objects.get(id = id)
-    if cuser.points < 10 :
-        if lesvisit in cuser.watchedlecs.all():
-            lesvisit = lesvisit
-        else:
-            lesvisit = []
-    if cuser.points >= 10 and lesvisit not in cuser.watchedlecs.all():
-        lesvisit = Lessons.objects.get(id = id)
-        cuser.watchedlecs.add(lesvisit)
-        cuser.points = cuser.points - 10
-        cuser.save()
     
 
     context={

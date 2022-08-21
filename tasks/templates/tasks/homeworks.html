@@ -5,7 +5,6 @@
     <h1 style="text-align:center; text-decoration:underline;"> الواجب المنزلي لدرس {{ les.name }} </h1>
     <hr style="height:10px; background-color:blue;">
     {% if not user.is_staff %}
-        {% if cuser.Sstatus %}
             {% if ask %}
                 {% if not flesh %}
                     <ol id="exam-body">
@@ -74,10 +73,6 @@
                 <a href="{% url 'home:lesson' les.id %}">
                     <-- عوده للدرس</a>
             {% endif %}
-        {% else %}
-                <h1 class="not alert alert-danger">نأسف لإعلامك بأنه ليس لديك صلاحية الوصول لهذه الصفحه لحين إعادة دفع إشتراكك الشهري </h1>
-                <a href="{% url 'tasks:exams' %}"> <-- عوده للإمتحانات</a>
-        {% endif %}
     {% endif %}
     {% if user.is_staff %}
             {% if ask %}

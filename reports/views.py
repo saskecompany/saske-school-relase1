@@ -129,30 +129,24 @@ def examrebortfV(request, id):
 def reportV(request):
     if not request.user.is_staff and report.objects.filter(user = request.user).exists():
         cstudent = student.objects.get(sinit=request.user)
-        if cstudent.Sstatus:
-            if homeworkReport.objects.filter(user=request.user) and examReport.objects.filter(user=request.user).exists( ):
-                cstudent.Spercent = (cstudent.Spercentexams + cstudent.Spercenthomeworks) / 2
-            else:
-                cstudent.Spercent = (cstudent.Spercentexams + cstudent.Spercenthomeworks)
-            cstudent.save()
-            percent = cstudent.Spercent
-            if homeworkReport.objects.filter(user=request.user).exists():
-                rep = report.objects.get(user = request.user)
-                hrep = homeworkReport.objects.filter(user=request.user)
-            else:
-                rep=""
-                hrep=""
-
-            if examReport.objects.filter(user=request.user).exists( ):
-                rep = report.objects.get(user = request.user)
-                erep = examReport.objects.filter(user=request.user)
-            else:
-                erep=""
+        if homeworkReport.objects.filter(user=request.user) and examReport.objects.filter(user=request.user).exists( ):
+            cstudent.Spercent = (cstudent.Spercentexams + cstudent.Spercenthomeworks) / 2
+        else:
+            cstudent.Spercent = (cstudent.Spercentexams + cstudent.Spercenthomeworks)
+        cstudent.save()
+        percent = cstudent.Spercent
+        if homeworkReport.objects.filter(user=request.user).exists():
+            rep = report.objects.get(user = request.user)
+            hrep = homeworkReport.objects.filter(user=request.user)
         else:
             rep=""
             hrep=""
+
+        if examReport.objects.filter(user=request.user).exists( ):
+            rep = report.objects.get(user = request.user)
+            erep = examReport.objects.filter(user=request.user)
+        else:
             erep=""
-            percent=""
 
     else:
         rep=""

@@ -6,7 +6,6 @@
         <h3 id="clock"></h3>
         <hr style="height:5px;" class="bg-warning">
         {% if not user.is_staff %}
-            {% if cuser.Sstatus %}
                 {% if not finish %}
                     {% if quest %}
                     <ol id="exam-body">
@@ -58,10 +57,6 @@
                     <h1 class="not alert alert-danger">لقد قدمت هذا الاختبار من قبل </h1>
                     <a href="{% url 'tasks:exams' %}"> <-- عوده للإمتحانات</a>
                 {% endif %}
-            {% else %}
-                <h1 class="not alert alert-danger">نأسف لإعلامك بأنه ليس لديك صلاحية الوصول لهذه الصفحه لحين إعادة دفع إشتراكك الشهري </h1>
-                <a href="{% url 'tasks:exams' %}"> <-- عوده للإمتحانات</a>
-            {% endif %}
         {% endif %}
         {% if user.is_staff %}
             {% if quest %}
