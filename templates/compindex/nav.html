@@ -7,6 +7,9 @@
             <li class="nav-item"><a class="nav-link" href="{% url 'home:all' %}">&#x627;&#x644;&#x634;&#x631;&#x62D;</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'task:exams' %}">&#x627;&#x644;&#x627;&#x645;&#x62A;&#x62D;&#x627;&#x646;&#x627;&#x62A;</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'reports:report' %}">&#x627;&#x644;&#x646;&#x62A;&#x627;&#x626;&#x62C;</a></li>
+            {% if user.is_staff %}
+            <li class="nav-item"><a class="nav-link" href="/admin">لوحة التحكم</a></li>
+            {% endif %}
           </ul>
           {% if not user.is_staff %}
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
